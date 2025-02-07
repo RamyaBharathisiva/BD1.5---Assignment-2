@@ -3,7 +3,7 @@ let cors=require('cors');
 const { resolve } = require('path');
 
 const app = express();
-const port = 300;
+const port = 3000;
 app.use(cors());
 
 //Endpoint 1: Calculate the Returns of the Stocks added
@@ -30,8 +30,7 @@ app.get('/total-returns',(req,res)=>{
 app.get('/calculate-return-percentage',(req,res)=>{
   let boughtAt=parseFloat(req.query.boughtAt);
   let returns=parseFloat(req.query.returns);
-  let profit = boughtAt-returns;
-  let percentage = (profit / boughtAt) * 100;
+  let percentage = (returns / boughtAt) * 100;
   res.send(percentage.toString());
 })
 
